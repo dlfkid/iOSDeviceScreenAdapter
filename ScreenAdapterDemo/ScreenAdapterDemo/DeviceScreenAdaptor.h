@@ -60,22 +60,22 @@ typedef NS_ENUM(NSInteger,DeviceType) {
     IPhone_3G,          //基本不用
     IPhone_3GS,         //基本不用
     IPhone_4,           //基本不用
-    IPhone_4s,          //基本不用
+    IPhone_4S,          //基本不用
     IPhone_5,
     IPhone_5C,
     IPhone_5S,
     IPhone_SE,
     IPhone_6,
     IPhone_6P,
-    IPhone_6s,
-    IPhone_6s_P,
+    IPhone_6S,
+    IPhone_6S_P,
     IPhone_7,
     IPhone_7P,
     IPhone_8,
     IPhone_8P,
     IPhone_X,
-    IPhone_Xs,
-    IPhone_XsMax,
+    IPhone_XS,
+    IPhone_XSMax,
     IPhone_XR,
 };
 
@@ -83,18 +83,58 @@ typedef NS_ENUM(NSInteger,DeviceType) {
 @interface DeviceScreenAdaptor : NSObject
 
 @property (nonatomic, assign, readonly) DeviceType deviceType;
+@property (nonatomic, copy, readonly) NSString *deviceTypeString;
 @property (nonatomic, assign, readonly) DeviceScreenType screenType;
 @property (nonatomic, assign, readonly) BOOL isLandscape;
 
+
+/**
+ get singleton instance
+
+ @return the shared screen adaptor
+ */
 + (DeviceScreenAdaptor *)sharedAdaptor;
 
+
+/**
+ transfer the UI value to adapt other screen
+
+ @param standardValue the value you used when coding with your develop iOS device.
+ @return the transfered value when running in other screen type devices.
+ */
 + (CGFloat)adaptedValue:(CGFloat)standardValue;
 
+
+/**
+ simply tell you wether the screen is in landscape.
+
+ @return the screen is currently landscape or not
+ */
 + (BOOL)isLandscape;
 
+
+/**
+ the screen type of current device
+
+ @return predefined screen type enum
+ */
 + (DeviceScreenType)screenType;
 
+
+/**
+ the type of the  current device
+
+ @return predefined device type enum
+ */
 + (DeviceType)deviceType;
+
+
+/**
+ the device type in string class
+
+ @return device type string
+ */
++ (NSString *)deviceTypeString;
 
 @end
 

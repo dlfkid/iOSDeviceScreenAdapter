@@ -12,7 +12,7 @@
 
 @interface DeviceScreenAdaptor()
 
-// Remember to rewrite the getter. When coding, choose the screen type you are using as develop device, it helps the adaptor to adjust UI values when yourd app is running in other screen types;
+// Remember to reload the getter. When coding, choose the screen type you are using as develop device, it helps the adaptor to adjust UI values when your app is running in other screen types;
 @property (nonatomic, assign) DeviceScreenType developStrandardScreenType;
 
 @end
@@ -41,7 +41,7 @@
             return DeviceScreenTypeUnknown;
             
         case IPhone_4:
-        case IPhone_4s:
+        case IPhone_4S:
             return DeviceScreenType3_5;
             
         case IPhone_5:
@@ -51,22 +51,22 @@
             return DeviceScreenType4_0;
             
         case IPhone_6:
-        case IPhone_6s:
+        case IPhone_6S:
         case IPhone_7:
         case IPhone_8:
             return DeviceScreenType4_7;
             
         case IPhone_6P:
-        case IPhone_6s_P:
+        case IPhone_6S_P:
         case IPhone_7P:
         case IPhone_8P:
             return DeviceScreenType5_5;
             
         case IPhone_X:
-        case IPhone_Xs:
+        case IPhone_XS:
             return DeviceScreenType5_8;
             
-        case IPhone_XsMax:
+        case IPhone_XSMax:
             return DeviceScreenType6_5;
             
         case IPhone_XR:
@@ -93,7 +93,7 @@
     if ([platform isEqualToString:@"iPhone2,1"])     return IPhone_3GS;
     if ([platform isEqualToString:@"iPhone3,1"])     return IPhone_4;
     if ([platform isEqualToString:@"iPhone3,2"])     return IPhone_4;
-    if ([platform isEqualToString:@"iPhone4,1"])     return IPhone_4s;
+    if ([platform isEqualToString:@"iPhone4,1"])     return IPhone_4S;
     if ([platform isEqualToString:@"iPhone5,1"])     return IPhone_5;
     if ([platform isEqualToString:@"iPhone5,2"])     return IPhone_5;
     if ([platform isEqualToString:@"iPhone5,3"])     return IPhone_5C;
@@ -102,8 +102,8 @@
     if ([platform isEqualToString:@"iPhone6,2"])     return IPhone_5S;
     if ([platform isEqualToString:@"iPhone7,1"])     return IPhone_6P;
     if ([platform isEqualToString:@"iPhone7,2"])     return IPhone_6;
-    if ([platform isEqualToString:@"iPhone8,1"])     return IPhone_6s;
-    if ([platform isEqualToString:@"iPhone8,2"])     return IPhone_6s_P;
+    if ([platform isEqualToString:@"iPhone8,1"])     return IPhone_6S;
+    if ([platform isEqualToString:@"iPhone8,2"])     return IPhone_6S_P;
     if ([platform isEqualToString:@"iPhone8,4"])     return IPhone_SE;
     if ([platform isEqualToString:@"iPhone9,1"])     return IPhone_7;
     if ([platform isEqualToString:@"iPhone9,3"])     return IPhone_7;
@@ -115,11 +115,82 @@
     if ([platform isEqualToString:@"iPhone10,5"])    return IPhone_8P;
     if ([platform isEqualToString:@"iPhone10,3"])    return IPhone_X;
     if ([platform isEqualToString:@"iPhone10,6"])    return IPhone_X;
-    if ([platform isEqualToString:@"iPhone11,2"])    return IPhone_Xs;
-    if ([platform isEqualToString:@"iPhone11,4"])    return IPhone_XsMax;
-    if ([platform isEqualToString:@"iPhone11,6"])    return IPhone_XsMax;
+    if ([platform isEqualToString:@"iPhone11,2"])    return IPhone_XS;
+    if ([platform isEqualToString:@"iPhone11,4"])    return IPhone_XSMax;
+    if ([platform isEqualToString:@"iPhone11,6"])    return IPhone_XSMax;
     if ([platform isEqualToString:@"iPhone11,8"])    return IPhone_XR;
     return Unknown;
+}
+
+- (NSString *)deviceTypeString {
+    switch (self.deviceType) {
+        case IPhone_1G:
+            return @"iPhone_1G";
+            
+        case IPhone_3G:
+            return @"iPhone_3G";
+            
+        case IPhone_3GS:
+            return @"iPhone_3GS";
+            
+        case IPhone_4:
+            return @"iPhone_4";
+            
+        case IPhone_4S:
+            return @"iPhone_4S";
+            
+        case IPhone_5:
+            return @"iPhone_5";
+            
+        case IPhone_5S:
+            return @"iPhone_5S";
+            
+        case IPhone_6:
+            return @"iPhone_6";
+            
+        case IPhone_6P:
+            return @"iPhone_6P";
+            
+        case IPhone_6S:
+            return @"iPhone_6S";
+            
+        case IPhone_6S_P:
+            return @"iPhone_6SP";
+            
+        case IPhone_7:
+            return @"iPhone_7";
+            
+        case IPhone_7P:
+            return @"iPhone_7P";
+            
+        case IPhone_8:
+            return @"iPhone_8";
+            
+        case IPhone_8P:
+            return @"iPhone_8P";
+            
+        case IPhone_X:
+            return @"iPhone_X";
+            
+        case IPhone_5C:
+            return @"iPhone_5C";
+            
+        case IPhone_SE:
+            return @"iPhone_SE";
+            
+        case IPhone_XS:
+            return @"iPhone_XS";
+            
+        case IPhone_XSMax:
+            return @"iPhone_XSMax";
+            
+        case IPhone_XR:
+            return @"iPhone_XR";
+            
+        case Unknown:
+        default:
+            return @"UnknownDevice";
+    }
 }
 
 - (CGFloat)adaptedValue:(CGFloat)standardValue {
@@ -242,6 +313,10 @@
 
 + (DeviceType)deviceType {
     return [DeviceScreenAdaptor sharedAdaptor].deviceType;
+}
+
++ (NSString *)deviceTypeString {
+    return [DeviceScreenAdaptor sharedAdaptor].deviceTypeString;
 }
 
 /*+ (DeviceScreenType)currentScreenType {
