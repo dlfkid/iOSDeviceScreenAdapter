@@ -25,7 +25,54 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                  Screen Adaption
+                  A simple class that help you identify device's screen when coding, with some useful extensions inside
+                  /**
+ get singleton instance
+
+ @return the shared screen adaptor
+ */
++ (DeviceScreenAdaptor *)sharedAdaptor;
+
+
+/**
+ transfer the UI value to adapt other screen
+
+ @param standardValue the value you used when coding with your develop iOS device.
+ @return the transfered value when running in other screen type devices.
+ */
++ (CGFloat)adaptedValue:(CGFloat)standardValue;
+
+
+/**
+ simply tell you wether the screen is in landscape.
+
+ @return the screen is currently landscape or not
+ */
++ (BOOL)isLandscape;
+
+
+/**
+ the screen type of current device
+
+ @return predefined screen type enum
+ */
++ (DeviceScreenType)screenType;
+
+
+/**
+ the type of the  current device
+
+ @return predefined device type enum
+ */
++ (DeviceType)deviceType;
+
+
+/**
+ the device type in string class
+
+ @return device type string
+ */
++ (NSString *)deviceTypeString;
                    DESC
 
   s.homepage     = "https://github.com/dlfkid/iOSDeviceScreenAdapter"
@@ -39,7 +86,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -80,7 +127,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/dlfkid/iOSDeviceScreenAdapter.git", :commit => "c45d664416ebeeadc015e6ef974eb36127091792" }
+  s.source       = { :git => "https://github.com/dlfkid/iOSDeviceScreenAdapter.git", :tag => s.version.to_s }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,8 +138,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "iOSDeviceScreenAdapter/ScreenAdapterDemo/ScreenAdapterDemo/Screenadapter"
+    #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 

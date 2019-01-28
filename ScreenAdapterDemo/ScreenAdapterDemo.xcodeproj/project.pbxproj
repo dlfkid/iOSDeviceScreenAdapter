@@ -106,8 +106,7 @@
 				3537A3A621FAED1100CB7A49 /* AppDelegate.m */,
 				3537A3D721FAED5000CB7A49 /* ScreenAdapterDemoViewController.h */,
 				3537A3D821FAED5000CB7A49 /* ScreenAdapterDemoViewController.m */,
-				3537A3E021FAFD7600CB7A49 /* DeviceScreenAdaptor.h */,
-				3537A3E121FAFD7600CB7A49 /* DeviceScreenAdaptor.m */,
+				35CD483721FEECAB00E8DD72 /* ScreenAdapter */,
 				3537A3AE21FAED1200CB7A49 /* Assets.xcassets */,
 				3537A3B021FAED1200CB7A49 /* LaunchScreen.storyboard */,
 				3537A3B321FAED1200CB7A49 /* Info.plist */,
@@ -132,6 +131,15 @@
 				3537A3CB21FAED1200CB7A49 /* Info.plist */,
 			);
 			path = ScreenAdapterDemoUITests;
+			sourceTree = "<group>";
+		};
+		35CD483721FEECAB00E8DD72 /* ScreenAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				3537A3E021FAFD7600CB7A49 /* DeviceScreenAdaptor.h */,
+				3537A3E121FAFD7600CB7A49 /* DeviceScreenAdaptor.m */,
+			);
+			path = ScreenAdapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
