@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "iOSDeviceScreenAdapter"
-  s.version      = "0.0.1"
+  s.version      = "1.0.1"
   s.summary      = "A simple class that help you identify device's screen when coding, with some useful extensions inside"
 
   # This description is used to generate tags and improve search results.
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+                  Screen Adaption
                    DESC
 
   s.homepage     = "https://github.com/dlfkid/iOSDeviceScreenAdapter"
@@ -129,8 +130,9 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
-
+   s.requires_arc = true
+   s.platform     = :ios, '10.0'
+   s.frameworks   = 'Foundation', 'UIKit'
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
