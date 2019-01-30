@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "iOSDeviceScreenAdapter"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A simple class that help you identify device's screen when coding, with some useful extensions inside"
 
   # This description is used to generate tags and improve search results.
@@ -73,6 +73,21 @@ Pod::Spec.new do |s|
  @return device type string
  */
 + (NSString *)deviceTypeString;
+
+/**
+ return the height of statusBar, NAVIGATIONBAR HEIGHT NOT INCLUDED
+
+ @return status bar height
+ */
++ (CGFloat)statusBarMargin;
+
+
+/**
+ return the height of bottom indicator
+
+ @return bottom indocator
+ */
++ (CGFloat)bottomIndicatorMargin;
                    DESC
 
   s.homepage     = "https://github.com/dlfkid/iOSDeviceScreenAdapter"
