@@ -26,7 +26,7 @@ Now with CocoaPods compatible
     
 # Methods Available:
 
-![alt text](http://ClassMethod.png)
+![alt text](/ClassMethod.png)
     
     
 
