@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "iOSDeviceScreenAdapter"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "A simple class that help you identify device's screen when coding, with some useful extensions inside"
 
   # This description is used to generate tags and improve search results.
@@ -115,7 +115,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "IvanDeng" => "email@address.com" }
+  s.author             = { "IvanDeng" => "dlfkid@icloud.com" }
   # Or just: s.author    = "IvanDeng"
   # s.authors            = { "IvanDeng" => "email@address.com" }
   # s.social_media_url   = "http://twitter.com/IvanDeng"
