@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ScreenAdapterDemoViewController.h"
+#import "DeviceScreenAdaptor.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,8 @@
     ScreenAdapterDemoViewController *viewController = [[ScreenAdapterDemoViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     self.window.rootViewController = navigationController;
+    // Set standard screen type first
+    [[DeviceScreenAdaptor sharedAdaptor] setDeveloperScreenType:DeviceScreenType5_5];
     return YES;
 }
 
