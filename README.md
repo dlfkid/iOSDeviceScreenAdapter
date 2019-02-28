@@ -27,12 +27,16 @@ Now with CocoaPods compatible
 # Usage:
 
 1. Initialize the class when your app is start.
-    ```[DeviceScreenAdaptor sharedAdaptor]```
+```
+    [DeviceScreenAdaptor sharedAdaptor]
+```
 
 2. To use adaptedValue method, rewirte the getter of property developStrandardScreenType to your current develop device screen type.
 
 (Recommanded) Alternative: If you are using version 1.0.3 just simply call the method 
-    ``` - (void)setDeveloperScreenType:(DeviceScreenType)type ```
+```
+    - (void)setDeveloperScreenType:(DeviceScreenType)type
+```
 
 to set your develop device in Appdelegate.m
 
