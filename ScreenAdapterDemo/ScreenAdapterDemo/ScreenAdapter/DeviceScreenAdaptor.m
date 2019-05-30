@@ -293,7 +293,7 @@
     return height;
 }
 
-- (CGFloat)statusBarMagin {
+- (CGFloat)statusBarMargin {
     switch (self.deviceType) {
         case IPhone_X:
         case IPhone_XS:
@@ -357,59 +357,15 @@
 }
 
 + (CGFloat)statusBarMargin {
-    return [DeviceScreenAdaptor sharedAdaptor].statusBarMagin;
+    return [DeviceScreenAdaptor sharedAdaptor].statusBarMargin;
+}
+
++ (CGFloat)navigationBarMargin {
+    return [DeviceScreenAdaptor sharedAdaptor].statusBarMargin + 44;
 }
 
 + (CGFloat)bottomIndicatorMargin {
     return [DeviceScreenAdaptor sharedAdaptor].bottomIndicatorMargin;
 }
 
-/*+ (DeviceScreenType)currentScreenType {
-    CGFloat side1 = [UIScreen mainScreen].nativeBounds.size.width;
-    CGFloat side2 = [UIScreen mainScreen].nativeBounds.size.height;
-    
-    CGFloat screenWidth = side1 < side2 ? side1 : side2;
-    CGFloat screenHeight = side1 < side2 ? side2 : side1;
-    
-    NSLog(@"ScreenNativeBounds Height: %f, Width: %f", screenHeight, screenWidth);
-    
-    DeviceScreenType deviceSize = DeviceScreenTypeUnknown;
-    
-    if (960 == screenHeight && 640 == screenWidth) {
-        deviceSize = DeviceScreenType3_5;
-    }
-    else if (1136 == screenHeight && 640 == screenWidth) {
-        deviceSize = DeviceScreenType4_0;
-    }
-    else if (1334 == screenHeight && 750 == screenWidth) {
-        deviceSize = DeviceScreenType4_7;
-    }
-    else if (1920 == screenHeight && 1080 == screenWidth) {
-        deviceSize = DeviceScreenType5_5;
-    }
-    else if (2436 == screenHeight && 1125 == screenWidth) {
-        deviceSize = DeviceScreenType5_8;
-    }
-    else if (1792 == screenHeight && 828 == screenWidth) {
-        deviceSize = DeviceScreenType6_1;
-    }
-    else if (2688 == screenHeight && 1242 == screenWidth) {
-        deviceSize = DeviceScreenType6_5;
-    }
-    else if (2048 == screenHeight && 1536 == screenWidth) {
-        deviceSize = DeviceScreenType9_7;
-    }
-    else if (2224 == screenHeight && 1668 == screenWidth) {
-        deviceSize = DeviceScreenType10_5;
-    }
-    else if (2388 == screenHeight && 1668 == screenWidth) {
-        deviceSize = DeviceScreenType11;
-    }
-    else if (2732 == screenHeight && 2048 == screenWidth) {
-        deviceSize = DeviceScreenType12_9;
-    }
-    
-    return deviceSize;
-}
-*/
 @end

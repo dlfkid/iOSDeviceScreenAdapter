@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define DSAdaptedValue(standardValue) (adaptedValue(standardValue))
 #define DSStatusBarMargin (statusBarMargin())
 #define DSBottomMargin (bottomMargin())
+#define DSNavigationBarMargin (navigationBarMargin())
 
 typedef NS_ENUM(NSInteger, DeviceScreenType) {
     /// 未知屏幕尺寸
@@ -90,7 +91,7 @@ typedef NS_ENUM(NSInteger,DeviceType) {
 @property (nonatomic, copy, readonly) NSString *deviceTypeString;
 @property (nonatomic, assign, readonly) DeviceScreenType screenType;
 @property (nonatomic, assign, readonly) BOOL isLandscape;
-@property (nonatomic, assign, readonly) CGFloat statusBarMagin;
+@property (nonatomic, assign, readonly) CGFloat statusBarMargin;
 @property (nonatomic, assign, readonly) CGFloat bottomIndicatorMargin;
 
 /**
@@ -149,6 +150,12 @@ typedef NS_ENUM(NSInteger,DeviceType) {
  */
 + (CGFloat)statusBarMargin;
 
+/**
+ return the Height of statusBar + navigationBar
+ 
+ @return navigationBar height
+ */
++ (CGFloat)navigationBarMargin;
 
 /**
  return the height of bottom indicator
@@ -177,4 +184,47 @@ CG_INLINE CGFloat bottomMargin() {
     return [DeviceScreenAdaptor bottomIndicatorMargin];
 }
 
+CG_INLINE CGFloat navigationBarMargin() {
+    return [DeviceScreenAdaptor navigationBarMargin];
+}
+
+static inline CGFloat DSScreenWidth() {
+    CGFloat screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+    
+    BOOL iOSVersionGreaterThan8 = [[[UIDevice currentDevice] systemVersion] compare:@"8" options:NSNumericSearch] == NSOrderedDescending;
+    
+    if (iOSVersionGreaterThan8) {
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        
+        if (orientation ==  UIDeviceOrientationPortrait) {
+            screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
+        }
+        else if((orientation == UIDeviceOrientationLandscapeRight) || (orientation == UIInterfaceOrientationLandscapeLeft)) {
+            screenWidth = CGRectGetHeight([UIScreen mainScreen].bounds);
+        }
+    }
+    
+    return screenWidth;
+}
+
+static inline CGFloat DSScreenHeight() {
+    CGFloat screenHeight = CGRectGetHeight([UIScreen mainScreen].bounds);
+    
+    BOOL iOSVersionGreaterThan8 = [[[UIDevice currentDevice] systemVersion] compare:@"8" options:NSNumericSearch] == NSOrderedDescending;
+    
+    if (iOSVersionGreaterThan8) {
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        
+        if (orientation ==  UIDeviceOrientationPortrait) {
+            screenHeight = CGRectGetHeight([UIScreen mainScreen].bounds);
+        }
+        else if ((orientation == UIDeviceOrientationLandscapeRight) || (orientation == UIInterfaceOrientationLandscapeLeft)) {
+            screenHeight = CGRectGetWidth([UIScreen mainScreen].bounds);
+        }
+    }
+    
+    return screenHeight;
+}
+
 NS_ASSUME_NONNULL_END
+
