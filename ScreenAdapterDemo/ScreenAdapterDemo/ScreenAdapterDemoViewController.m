@@ -73,7 +73,7 @@ static CGFloat const standardWidth = 220;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"Adapted value test: %f, status bar : %f, bottom margin : %f", DSAdaptedValue(1000), DSStatusBarMargin, DSBottomMargin);
+    NSLog(@"Adapted value test: %f, status bar : %f, bottom margin : %f", DSAdaptedWidthValue(1000), DSStatusBarMargin, DSBottomMargin);
 }
 
 #pragma mark - Actions

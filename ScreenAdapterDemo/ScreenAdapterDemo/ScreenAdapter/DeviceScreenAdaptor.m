@@ -201,6 +201,20 @@
     }
 }
 
+- (CGFloat)adaptedValue:(CGFloat)standardValue ScreenWidthBased:(BOOL)isWidthBased {
+    CGFloat actualValue = 0;
+    if (isWidthBased) {
+        CGFloat standardWidth = [self screenWidth:self.developStrandardScreenType];
+        CGFloat actualWidth = [self screenWidth:self.screenType];
+        actualValue = standardValue * (actualWidth / standardWidth);
+    } else {
+        CGFloat standardHeight = [self screenHeight:self.developStrandardScreenType];
+        CGFloat actualHeight = [self screenHeight:self.screenType];
+        actualValue = standardValue * (actualHeight / standardHeight);
+    }
+    return actualValue;
+}
+
 - (CGFloat)adaptedValue:(CGFloat)standardValue {
     CGFloat diagonalStandardWidthSquare = pow([self screenWidth:self.developStrandardScreenType], 2);
     CGFloat diagonalStandardHeightSquare = pow([self screenHeight:self.developStrandardScreenType], 2);
@@ -325,9 +339,9 @@
 
 #pragma mark - Public
 
-+ (CGFloat)adaptedValue:(CGFloat)standardValue {
++ (CGFloat)adaptedValue:(CGFloat)standardValue ScreenWidthBased:(BOOL)isWidthBased {
     DeviceScreenAdaptor *adaptor = [DeviceScreenAdaptor sharedAdaptor];
-    return [adaptor adaptedValue:standardValue];
+    return [adaptor adaptedValue:standardValue ScreenWidthBased:isWidthBased];
 }
 
 + (DeviceScreenAdaptor *)sharedAdaptor {
