@@ -66,6 +66,9 @@ typedef NS_ENUM(NSInteger,DeviceType) {
     IPhone_XS = 20, /// IPhone_XS: supported
     IPhone_XSMax = 21, /// IPhone_XSMax: supported
     IPhone_XR = 22, /// IPhone_XR: supported
+    IPhone_11 = 23,
+    IPhone_11_Pro = 24,
+    IPhone_11_Pro_Max = 25,
 };
 
 

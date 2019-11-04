@@ -72,12 +72,15 @@
             
         case IPhone_X:
         case IPhone_XS:
+        case IPhone_11_Pro:
             return DeviceScreenType5_8;
             
         case IPhone_XSMax:
+        case IPhone_11_Pro_Max:
             return DeviceScreenType6_5;
             
         case IPhone_XR:
+        case IPhone_11:
             return DeviceScreenType6_1;
             
         default:
@@ -127,6 +130,10 @@
     if ([platform isEqualToString:@"iPhone11,4"])    return IPhone_XSMax;
     if ([platform isEqualToString:@"iPhone11,6"])    return IPhone_XSMax;
     if ([platform isEqualToString:@"iPhone11,8"])    return IPhone_XR;
+    if ([platform isEqualToString:@"iPhone12,1"])    return IPhone_11;
+    if ([platform isEqualToString:@"iPhone12,3"])    return IPhone_11_Pro;
+    if ([platform isEqualToString:@"iPhone12,5"])    return IPhone_11_Pro_Max;
+    
     return Unknown;
 }
 
@@ -194,6 +201,15 @@
             
         case IPhone_XR:
             return @"iPhone_XR";
+            
+        case IPhone_11:
+            return @"iPhone_11";
+            
+        case IPhone_11_Pro:
+            return @"iPhone_11_Pro";
+        
+        case IPhone_11_Pro_Max:
+            return @"iPhone_11_Pro_Max";
             
         case Unknown:
         default:
@@ -308,11 +324,10 @@
 }
 
 - (CGFloat)statusBarMargin {
-    switch (self.deviceType) {
-        case IPhone_X:
-        case IPhone_XS:
-        case IPhone_XR:
-        case IPhone_XSMax:
+    switch (self.screenType) {
+        case DeviceScreenType5_8:
+        case DeviceScreenType6_1:
+        case DeviceScreenType6_5:
             return 44;
             break;
             
@@ -323,11 +338,10 @@
 }
 
 - (CGFloat)bottomIndicatorMargin {
-    switch (self.deviceType) {
-        case IPhone_X:
-        case IPhone_XS:
-        case IPhone_XR:
-        case IPhone_XSMax:
+    switch (self.screenType) {
+        case DeviceScreenType5_8:
+        case DeviceScreenType6_1:
+        case DeviceScreenType6_5:
             return 34;
             break;
             
